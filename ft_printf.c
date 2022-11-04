@@ -22,7 +22,7 @@ static void	ft_options(char	o, void *wut, int *count)
 {
 	if (o == 'c')
 	{
-		ft_putchar_fd((char *) wut, 1);
+		ft_putchar_fd((char) *wut, 1);
 		*count = *count + 1;
 	}
 	else if (o == 's')
@@ -30,13 +30,13 @@ static void	ft_options(char	o, void *wut, int *count)
 	else if (o == 'p')
 		ft_do(ft_putadd((unsigned long) wut), &count);
 	else if (o == 'd' || o == 'i')
-		ft_do(ft_itoa((int) wut), &count);
+		ft_do(ft_itoa((int) *wut), &count);
 	else if (o == 'u')
 		ft_do(ft_putunsi((unsigned long) wut), &count);
 	else if (o == 'x')
-		ft_do(ft_putlhexa((unsigned int) wut), &count);
+		ft_do(ft_putlhexa((unsigned int) *wut), &count);
 	else if (o == 'X')
-		ft_do(ft_putuhexa((unsigned int) wut), &count);
+		ft_do(ft_putuhexa((unsigned int) *wut), &count);
 }
 
 int	ft_printf(const char *format, ...)
