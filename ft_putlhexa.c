@@ -35,10 +35,7 @@ static int ft_div(unsigned int nb)
 {
     unsigned int div;
 
-    if (nb < 0)
-        div = -nb / 16;
-    else
-        div = nb / 16;
+    div = nb / 16;
     return (div);
 }
 
@@ -64,10 +61,7 @@ static int ft_mod(unsigned int nb)
 {
     unsigned int mod;
 
-    if (nb < 0)
-        mod = -nb % 16;
-    else
-        mod = nb % 16;
+    mod = nb % 16;
     return (mod);
 }
 
@@ -91,8 +85,6 @@ char	*ft_putlhexa(unsigned int nb)
 		div = div / 16;
 	}
 	conv[i++] = lh[mod];
-    if (nb < 0)
-	    conv[i++] = '-';
 	conv[i] = '\0';
 	conv = ft_reverse(conv);
 	return (conv);

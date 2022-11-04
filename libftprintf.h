@@ -18,8 +18,8 @@
 
 int     ft_printf(const char *format, ...);
 char	*ft_putadd(unsigned long add);
-char	*ft_putlhexa(int nb);
-char	*ft_putuhexa(int nb);
+char	*ft_putlhexa(unsigned int nb);
+char	*ft_putuhexa(unsigned int nb);
 char	*ft_putunsi(unsigned int n);
 
 #endif
