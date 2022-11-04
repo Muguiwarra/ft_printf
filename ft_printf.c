@@ -22,21 +22,21 @@ static void	ft_options(char	o, va_list wut, int *count)
 {
 	if (o == 'c')
 	{
-		ft_putchar_fd((char) wut, 1);
+		ft_putchar_fd(va_arg(wut, char), 1);
 		*count = *count + 1;
 	}
 	else if (o == 's')
-		ft_do((char *) wut, &count);
+		ft_do(va_arg(wut, char *), &count);
 	else if (o == 'p')
-		ft_do(ft_putadd((unsigned long) wut), &count);
+		ft_do(ft_putadd(va_arg(wut, unsigned long), &count);
 	else if (o == 'd' || o == 'i')
-		ft_do(ft_itoa((int) wut), &count);
+		ft_do(ft_itoa(va_arg(wut, int), &count);
 	else if (o == 'u')
-		ft_do(ft_putunsi((unsigned long) wut), &count);
+		ft_do(ft_putunsi(va_arg(wut, unsigned long), &count);
 	else if (o == 'x')
-		ft_do(ft_putlhexa((unsigned int) wut), &count);
+		ft_do(ft_putlhexa(va_arg(wut, unsigned int), &count);
 	else if (o == 'X')
-		ft_do(ft_putuhexa((unsigned int) wut), &count);
+		ft_do(ft_putuhexa(va_arg(wut, unsigned int), &count);
 }
 
 int	ft_printf(const char *format, ...)
