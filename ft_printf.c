@@ -22,7 +22,7 @@ static void	ft_options(char	o, va_list wut, int *count)
 {
 	if (o == 'c')
 	{
-		ft_putchar_fd(va_arg(wut, char), 1);
+		ft_putchar_fd(va_arg(wut, int), 1);
 		*count = *count + 1;
 	}
 	else if (o == 's')
