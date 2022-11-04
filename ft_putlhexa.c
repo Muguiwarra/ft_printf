@@ -73,6 +73,7 @@ char	*ft_putlhexa(unsigned int nb)
 	unsigned int	div;
 	unsigned int	mod;
 
+	conv = NULL;
 	lh = "0123456789abcdef";
 	conv = ft_allocation(nb, conv);
 	div = ft_div(nb);
