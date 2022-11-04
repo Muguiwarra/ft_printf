@@ -32,11 +32,9 @@ static int	ft_ndigit(unsigned int n)
 
 static char	*ft_pnbr(char *ptr, unsigned int n)
 {
-	int	i;
 	int	j;
 	int	k;
 
-	i = 0;
 	j = ft_ndigit(n);
 	k = j;
 	while (n / 10 > 9)
@@ -62,13 +60,9 @@ static char	*ft_znbr(char *ptr)
 char	*ft_putunsi(unsigned int n)
 {
 	char	*ptr;
-	int		i;
 	int		j;
-	int		k;
 
-	i = 0;
 	j = ft_ndigit(n);
-	k = j;
 	if (n == 0)
 		ptr = (char *)malloc(2 * sizeof(char));
 	else
