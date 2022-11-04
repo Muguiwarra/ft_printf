@@ -27,7 +27,7 @@ OBJS = $(SRCS:.c=.o)
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	$(MAKE) bonus $(LIBFT)
+	$(MAKE) $(LIBFT)
 	ar -rc $(NAME) $(OBJS)
 
 clean :
