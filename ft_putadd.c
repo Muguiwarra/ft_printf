@@ -33,16 +33,8 @@ static char	*ft_reverse(char *str)
 
 static void ft_divmod(unsigned long nb, unsigned long *div, unsigned long *mod)
 {
-    if (nb < 0)
-	{
-		*mod = -nb % 16;
-        *div = -nb / 16;
-	}
-	else
-	{
-		*mod = nb % 16;
-        *div = nb / 16;
-	}
+	*mod = nb % 16;
+    *div = nb / 16;
 }
 
 static char *ft_allocation(unsigned long nb, char *ptr)
@@ -72,6 +64,7 @@ static char	*ft_hexa(unsigned long nb)
 	unsigned long	div;
 	unsigned long	mod;
 
+	conv = NULL;
 	lh = "0123456789abcdef";
 	conv = ft_allocation(nb, conv);
 	ft_divmod(nb, &div, &mod);
@@ -83,8 +76,6 @@ static char	*ft_hexa(unsigned long nb)
 		div = div / 16;
 	}
 	conv[i++] = lh[mod];
-    if (nb < 0)
-	    conv[i++] = '-';
 	conv[i] = '\0';
 	conv = ft_reverse(conv);
 	return (conv);
