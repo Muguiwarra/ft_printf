@@ -20,6 +20,9 @@ char	*ft_putuhexa(unsigned int nb)
 	i = 0;
 	conv = ft_putlhexa(nb);
 	while (conv[i])
-		conv[i++] = ft_toupper(conv[i]);
+	{
+		conv[i] = ft_toupper(conv[i]);
+		i++;
+	}
 	return (conv);
 }
