@@ -6,11 +6,11 @@
 #    By: nabboune <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/26 04:48:50 by nabboune          #+#    #+#              #
-#    Updated: 2022/10/26 04:48:58 by nabboune         ###   ########.fr        #
+#    Updated: 2022/11/10 00:33:25 by nabboune         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
+NAME = ../libftprintf.a
 
 CFLAGS = -Wall -Wextra -Werror
 
@@ -57,7 +57,6 @@ BONUS_FILES =	ft_lstadd_back_bonus.c \
 				ft_lstdelone_bonus.c \
 				ft_lstclear_bonus.c
 
-
 OBJS = $(SRCS:.c=.o)
 
 BONUS = $(BONUS_FILES:.c=.o)
@@ -74,7 +73,7 @@ clean :
 	$(RM) $(OBJS) $(BONUS)
 
 fclean : clean
-	$(RM) $(NAME)
+	$(RM) ../libft.a
 
 re : fclean all
 

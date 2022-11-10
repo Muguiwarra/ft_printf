@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nabboune <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/30 01:18:26 by marvin            #+#    #+#             */
-/*   Updated: 2022/10/30 01:18:26 by marvin           ###   ########.fr       */
+/*   Created: 2022/11/09 21:18:55 by nabboune          #+#    #+#             */
+/*   Updated: 2022/11/10 02:18:50 by nabboune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-#include "libft/libft.h"
-#include <stdarg.h>
+# include "libft/libft.h"
+# include <stdarg.h>
 
-int     ft_printf(const char *format, ...);
+int		ft_printf(const char *format, ...);
 char	*ft_putadd(unsigned long add);
 char	*ft_putlhexa(unsigned int nb);
 char	*ft_putuhexa(unsigned int nb);

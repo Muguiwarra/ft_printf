@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putuhexa.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nabboune <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/30 02:37:10 by marvin            #+#    #+#             */
-/*   Updated: 2022/10/30 02:37:10 by marvin           ###   ########.fr       */
+/*   Created: 2022/11/09 21:20:39 by nabboune          #+#    #+#             */
+/*   Updated: 2022/11/10 01:05:01 by nabboune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 char	*ft_putuhexa(unsigned int nb)
 {
-	char			*conv;
+	char	*conv;
 	int		i;
 
 	i = 0;

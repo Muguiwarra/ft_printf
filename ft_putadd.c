@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putadd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nabboune <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/30 01:37:30 by marvin            #+#    #+#             */
-/*   Updated: 2022/10/30 01:37:30 by marvin           ###   ########.fr       */
+/*   Created: 2022/11/09 21:20:14 by nabboune          #+#    #+#             */
+/*   Updated: 2022/11/10 02:03:09 by nabboune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 static char	*ft_reverse(char *str)
 {
@@ -19,7 +19,7 @@ static char	*ft_reverse(char *str)
 	int		i;
 
 	slen = ft_strlen(str);
-	ptr = (char *) malloc(slen + 1);
+	ptr = (char *)malloc(slen + 1);
 	i = 0;
 	while (slen > 0)
 	{
@@ -28,32 +28,28 @@ static char	*ft_reverse(char *str)
 		slen--;
 	}
 	ptr[i] = '\0';
+	free(str);
 	return (ptr);
 }
 
-static void ft_divmod(unsigned long nb, unsigned long *div, unsigned long *mod)
+static char	*ft_allocation(unsigned long nb, char *ptr)
 {
-	*mod = nb % 16;
-    *div = nb / 16;
-}
+	int				i;
+	unsigned long	div;
+	unsigned long	mod;
 
-static char *ft_allocation(unsigned long nb, char *ptr)
-{
-    int i;
-    unsigned long div;
-	unsigned long mod;
-
-    i = 1;
-    ft_divmod(nb, &div, &mod);
+	i = 1;
+	mod = nb % 16;
+	div = nb / 16;
 	while (div > 0)
 	{
 		i++;
 		div = div / 16;
 	}
-    ptr = (char *) malloc(i + 1);
+	ptr = (char *)malloc(i + 1);
 	if (!ptr)
 		return (0);
-    return (ptr);
+	return (ptr);
 }
 
 static char	*ft_hexa(unsigned long nb)
@@ -67,9 +63,10 @@ static char	*ft_hexa(unsigned long nb)
 	conv = NULL;
 	lh = "0123456789abcdef";
 	conv = ft_allocation(nb, conv);
-	ft_divmod(nb, &div, &mod);
-    i = 0;
-	while(div > 0)
+	mod = nb % 16;
+	div = nb / 16;
+	i = 0;
+	while (div > 0)
 	{
 		conv[i++] = lh[mod];
 		mod = div % 16;
@@ -93,10 +90,11 @@ char	*ft_putadd(unsigned long add)
 	j = 0;
 	s1 = ft_hexa(add);
 	l = ft_strlen(s1) + 3;
-	s2 = (char *) malloc(l * sizeof(char));
+	s2 = (char *)malloc(l * sizeof(char));
 	s2[i++] = '0';
 	s2[i++] = 'x';
 	while (i < l)
 		s2[i++] = s1[j++];
+	free(s1);
 	return (s2);
 }

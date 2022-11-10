@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putlhexa.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nabboune <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/30 01:50:25 by marvin            #+#    #+#             */
-/*   Updated: 2022/10/30 01:50:25 by marvin           ###   ########.fr       */
+/*   Created: 2022/11/09 21:20:24 by nabboune          #+#    #+#             */
+/*   Updated: 2022/11/10 02:05:16 by nabboune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 static char	*ft_reverse(char *str)
 {
@@ -19,7 +19,7 @@ static char	*ft_reverse(char *str)
 	int		i;
 
 	slen = ft_strlen(str);
-	ptr = (char *) malloc(slen + 1);
+	ptr = (char *)malloc(slen + 1);
 	i = 0;
 	while (slen > 0)
 	{
@@ -28,41 +28,26 @@ static char	*ft_reverse(char *str)
 		slen--;
 	}
 	ptr[i] = '\0';
+	free(str);
 	return (ptr);
 }
 
-static int ft_div(unsigned int nb)
+static char	*ft_allocation(unsigned int nb, char *ptr)
 {
-    unsigned int div;
+	int				i;
+	unsigned int	div;
 
-    div = nb / 16;
-    return (div);
-}
-
-static char *ft_allocation(unsigned int nb, char *ptr)
-{
-    int i;
-    unsigned int div;
-
-    i = 1;
-    div = ft_div(nb);
+	i = 1;
+	div = nb / 16;
 	while (div > 0)
 	{
 		i++;
 		div = div / 16;
 	}
-    ptr = (char *) malloc(i + 1);
+	ptr = (char *)malloc(i + 1);
 	if (!ptr)
 		return (0);
-    return (ptr);
-}
-
-static int ft_mod(unsigned int nb)
-{
-    unsigned int mod;
-
-    mod = nb % 16;
-    return (mod);
+	return (ptr);
 }
 
 char	*ft_putlhexa(unsigned int nb)
@@ -76,10 +61,10 @@ char	*ft_putlhexa(unsigned int nb)
 	conv = NULL;
 	lh = "0123456789abcdef";
 	conv = ft_allocation(nb, conv);
-	div = ft_div(nb);
-    mod = ft_mod(nb);
-    i = 0;
-	while(div > 0)
+	div = nb / 16;
+	mod = nb % 16;
+	i = 0;
+	while (div > 0)
 	{
 		conv[i++] = lh[mod];
 		mod = div % 16;

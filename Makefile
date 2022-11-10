@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
+#    By: nabboune <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/03 23:10:26 by marvin            #+#    #+#              #
-#    Updated: 2022/11/03 23:10:26 by marvin           ###   ########.fr        #
+#    Updated: 2022/11/10 00:30:22 by nabboune         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,14 +27,14 @@ OBJS = $(SRCS:.c=.o)
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	$(MAKE) $(LIBFT)
+	cd libft && $(MAKE)
 	ar -rc $(NAME) $(OBJS)
 
 clean :
-	$(MAKE) 
 	$(RM) $(OBJS)
 
 fclean : clean
+	cd libft && $(MAKE) fclean
 	$(RM) $(NAME)
 
 re : fclean all

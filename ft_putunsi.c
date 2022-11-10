@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putunsi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nabboune <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 05:34:43 by marvin            #+#    #+#             */
-/*   Updated: 2022/11/01 05:34:43 by marvin           ###   ########.fr       */
+/*   Updated: 2022/11/10 02:10:03 by nabboune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 static int	ft_ndigit(unsigned int n)
 {
 	unsigned int	temp;
-	int	j;
+	int				j;
 
 	j = 1;
 	temp = n;
@@ -50,13 +50,6 @@ static char	*ft_pnbr(char *ptr, unsigned int n)
 	return (ptr);
 }
 
-static char	*ft_znbr(char *ptr)
-{
-	ptr[0] = '0';
-	ptr[1] = '\0';
-	return (ptr);
-}
-
 char	*ft_putunsi(unsigned int n)
 {
 	char	*ptr;
@@ -70,7 +63,10 @@ char	*ft_putunsi(unsigned int n)
 	if (!ptr)
 		return (0);
 	if (n == 0)
-		ptr = ft_znbr(ptr);
+	{
+		ptr[0] = '0';
+		ptr[1] = '\0';
+	}
 	else
 		ptr = ft_pnbr(ptr, n);
 	return (ptr);
